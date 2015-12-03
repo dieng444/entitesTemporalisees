@@ -1,10 +1,15 @@
 package model;
 
-public abstract class TemporalizedEntitiy extends SimpleChangeModel{
+public abstract class TemporalizedEntity extends SimpleChangeModel{
 	
 	protected long startTime;
 	protected long finishTime;
 	protected long currentTime;
+	
+	public TemporalizedEntity(long startTime, long finishTime) {
+		this.startTime = startTime;
+		this.finishTime = finishTime;
+	}
 	
 	public long getStartTime() {
 		return startTime;
