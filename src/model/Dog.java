@@ -1,17 +1,18 @@
 package model;
 
-public class Dog extends TemporalizedEntitiy{
-	
-	public void bark() {
-		
-	}
-	
-	public void sleep() {
-		
-	}
+import java.util.ArrayList;
+import java.util.List;
 
-	public void eat() {
+public class Dog extends TemporalizedEntity{
 	
+	private List<DogAction> dogActions = new ArrayList<DogAction>();
+	
+	public Dog(long startTime, long finishTime) {
+		super(startTime, finishTime);
+	}
+	
+	public void addDogAction(DogAction a) {
+		dogActions.add(a);
 	}
 	
 }
