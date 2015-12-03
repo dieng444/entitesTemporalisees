@@ -18,6 +18,9 @@ public class TimeController extends JFrame implements ChangeListener, SimpleChan
 	private Time time;
 	private JLabel label;
 	
+	
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
