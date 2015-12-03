@@ -2,6 +2,6 @@ package view;
 
 import javax.swing.JFrame;
 
-public class ViewDog extends JFrame {
-	
+public class ViewGPS extends JFrame {
+
 }
