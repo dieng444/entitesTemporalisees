@@ -27,4 +27,12 @@ public abstract class TemporalizedEntity extends SimpleChangeModel{
 		currentTime = t;
 	}
 	
+	public void setStartTime(long t) {
+		startTime = t;
+	}
+	
+	public void setFinishTime(long t) {
+		finishTime = t;
+	}
+	
 }

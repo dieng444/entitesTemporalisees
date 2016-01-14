@@ -15,7 +15,6 @@ public abstract class StateTemporality {
 	}
 	
 	public long getStartTime() {
-		System.out.println(startTime);
 		return startTime;
 	}
 	
@@ -33,7 +32,12 @@ public abstract class StateTemporality {
 	
 	public void setCurrentTimeFromRatio(double ratio) {
 		this.currentTime = (long) (currentTime + ratio * ( finishTime - startTime ));
+		for(TemporalizedEntity te : time.getTemporalizedEntity()) {
+			update(te);
+		}
 	}
+	
+	public abstract void update(TemporalizedEntity e);
 	
 	public abstract void addTemporalizedEntity(TemporalizedEntity e);
 	

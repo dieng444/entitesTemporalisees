@@ -15,4 +15,10 @@ public class Dog extends TemporalizedEntity{
 		dogActions.add(a);
 	}
 	
+	public void doAction() {
+		for (DogAction da : dogActions) {
+			da.doAction();
+		}
+	}
+	
 }

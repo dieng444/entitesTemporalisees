@@ -9,14 +9,15 @@ public class SynchronizedTemporality extends StateTemporality{
 		super(time);
 		startTime = 0;
 	}
-	
-	public String toString() {
-		return "l'état courant est : synchronized temporality";
-	}
 
 	@Override
 	public void addTemporalizedEntity(TemporalizedEntity e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getFinishTime() > finishTime)
+			finishTime = e.getFinishTime();
+	}
+	
+	@Override
+	public void update(TemporalizedEntity e) {
+		e.setCurrentTime(e.getStartTime()+currentTime);
 	}
 }

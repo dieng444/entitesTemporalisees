@@ -6,11 +6,11 @@ import java.util.List;
 import stateTemporality.*;
 
 public class Time {
+	
+	public static final byte NORMAL = 0;
+	public static final byte SYNCHRO = 1;
 
 	private List<TemporalizedEntity> temporalizedEntities = new ArrayList<TemporalizedEntity>();
-	private long startTime;
-	private long finishTime;
-	private long currentTime;
 	private NormalTemporality normalState;
 	private SynchronizedTemporality synchroState;
 	private StateTemporality currentState;
@@ -19,7 +19,6 @@ public class Time {
 		normalState = new NormalTemporality(this);
 		synchroState = new SynchronizedTemporality(this);
 		currentState = normalState;
-		System.out.println(currentState);
 	}
 
 	public void addTemporalizedEntity(TemporalizedEntity e) {
@@ -50,8 +49,16 @@ public class Time {
 		return currentState.getCurrentTime();
 	}
 	
-	public void setState() {
-		
+	public void setState(byte state) {
+		if(state == NORMAL) 
+			currentState = normalState;
+		else {
+			if(state == SYNCHRO)
+				currentState = synchroState;
+		}
 	}
 	
+	public void setCurrentTimeFromRatio(double ratio) {
+		currentState.setCurrentTimeFromRatio(ratio);
+	}
 }
